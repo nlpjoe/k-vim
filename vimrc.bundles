@@ -46,6 +46,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
+Plug 'davidhalter/jedi-vim'
+
+
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
@@ -54,6 +57,8 @@ Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 " quick edit
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
+
+" Plug 'tenfyzhong/CompleteParameter.vim'
 
 
 " 快速加入修改环绕字符
@@ -196,6 +201,11 @@ if count(g:bundle_groups, 'python')
     Plug 'fisadev/vim-isort'
     " Shift-V 上下选中, ctrl + i 规范化
     let g:vim_isort_map = '<C-i>'
+    " inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+    " smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+    " imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+    " smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+    " imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 endif
 
 if count(g:bundle_groups, 'php')
@@ -427,6 +437,8 @@ endif
     let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
     let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
     let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_server_python_interpreter='/data3/jzzhou/anaconda3/bin/python3'
+    " let g:ycm_autoclose_preview_window_after_completion=1  "auto closing of the preview window when the user accepts the offered completion string."
     " 开启语法关键字补全
     let g:ycm_seed_identifiers_with_syntax=1
     " 回车作为选中
@@ -459,6 +471,17 @@ endif
         \ 'gitcommit' : 1,
         \}
 " }}}
+
+" let g:jedi#completions_command = "<C-N>"
+" let g:jedi#auto_initialization = 0
+" let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>nn"
+let g:jedi#rename_command = "<leader>r"
 
 
 " ultisnips {{{
